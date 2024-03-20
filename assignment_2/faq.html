@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - My E-Commerce Store</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 5px;
+    }
+
+    .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+
+    .faq-question {
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;
+        margin-bottom: 5px;
+        transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+        color: #555;
+    }
+
+    .faq-answer {
+        display: none;
+        margin-top: 5px;
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .faq-answer.active {
+        display: block;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>FAQ - My E-Commerce Store</h1>
+</header>
+
+<div class="container">
+    <div class="faq-item">
+        <div class="faq-question">What payment methods do you accept?</div>
+        <div class="faq-answer">We accept Visa, MasterCard, American Express, and PayPal.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">Can I return a product if I'm not satisfied?</div>
+        <div class="faq-answer">Yes, you can return a product within 30 days of purchase. Please refer to our <a href="#">return policy</a> for more details.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">How long does shipping take?</div>
+        <div class="faq-answer">Shipping times vary depending on your location. Typically, orders are delivered within 5-7 business days.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Do you offer international shipping?</div>
+        <div class="faq-answer">Yes, we offer international shipping to most countries. Shipping times and costs may vary.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">What is your customer service contact information?</div>
+        <div class="faq-answer">You can reach our customer service team at <a href="tel:18001234567">1-800-123-4567</a> or email us at <a href="mailto:customerservice@example.com">customerservice@example.com</a>.</div>
+    </div>
+
+    <!-- Add more FAQ items as needed -->
+</div>
+
+<script>
+    // Add click event listener to each FAQ question
+    var faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(function(question) {
+        question.addEventListener('click', function() {
+            var answer = question.nextElementSibling;
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+            } else {
+                // Hide all other answers
+                faqQuestions.forEach(function(otherQuestion) {
+                    var otherAnswer = otherQuestion.nextElementSibling;
+                    if (otherAnswer !== answer && otherAnswer.classList.contains('active')) {
+                        otherAnswer.classList.remove('active');
+                    }
+                });
+                answer.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
